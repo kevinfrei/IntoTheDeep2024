@@ -2,6 +2,7 @@ package org.firstinspires.ftc.twenty403;
 
 import com.qualcomm.hardware.digitalchickenlabs.OctoQuad;
 import com.technototes.library.logger.Loggable;
+import com.technototes.library.logger.Logger;
 import com.technototes.library.util.Alliance;
 import org.firstinspires.ftc.twenty403.helpers.OctoquadEncoder;
 import org.firstinspires.ftc.twenty403.helpers.StartingPosition;
@@ -26,6 +27,7 @@ public class Robot implements Loggable {
     public ArmSubsystem armSubsystem;
 
     public Robot(Hardware hw, Alliance team, StartingPosition pos) {
+        Logger.LogHardware(Setup.OtherSettings.DEVICES_TO_LOG);
         this.position = pos;
         this.alliance = team;
         this.initialVoltage = hw.voltage();
