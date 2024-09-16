@@ -11,7 +11,7 @@ public class Setup {
         public static boolean HORIZSLIDES = true;
     }
 
-    @Config
+    // @Config - Don't need to pollute the dashboard
     public static class HardwareNames {
         public static String FL_DRIVE_MOTOR = "fl";
         public static String FR_DRIVE_MOTOR = "fr";
@@ -30,6 +30,7 @@ public class Setup {
 
     @Config
     public static class OtherSettings {
+        public static String DEVICES_TO_LOG = "";
         public static double STRAIGHTEN_DEAD_ZONE = 0.08;
     }
 }
