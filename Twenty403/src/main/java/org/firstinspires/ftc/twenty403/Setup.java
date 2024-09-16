@@ -13,7 +13,7 @@ public class Setup {
         public static boolean KIDSSHAMPOOSUBSYSTEM = true;
     }
 
-    @Config
+    // @Config - Don't pollute the dashboard
     public static class HardwareNames {
 
         public static String FLMOTOR = "fl";
@@ -28,7 +28,6 @@ public class Setup {
         public static String JAW = "jaw";
         public static String COLOR1 = "color";
         public static String DIST1 = "dist";
-
     }
 
     @Config
@@ -36,5 +35,6 @@ public class Setup {
 
         public static int AUTOTIME = 25;
         public static double STRAIGHTEN_DEAD_ZONE = 0.015;
+        public static String DEVICES_TO_LOG = "";
     }
 }

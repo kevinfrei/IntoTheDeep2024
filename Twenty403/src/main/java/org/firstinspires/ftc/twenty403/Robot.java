@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.twenty403;
 
 import com.technototes.library.logger.Loggable;
+import com.technototes.library.logger.Logger;
 import com.technototes.library.util.Alliance;
 import org.firstinspires.ftc.twenty403.helpers.StartingPosition;
 import org.firstinspires.ftc.twenty403.subsystems.DrivebaseSubsystem;
@@ -20,6 +21,7 @@ public class Robot implements Loggable {
     public SafetySubsystem safetySubsystem;
 
     public Robot(Hardware hw, Alliance team, StartingPosition pos) {
+        Logger.LogHardware(Setup.OtherSettings.DEVICES_TO_LOG);
         this.position = pos;
         this.alliance = team;
         this.initialVoltage = hw.voltage();
