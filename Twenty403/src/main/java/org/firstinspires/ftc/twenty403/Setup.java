@@ -17,7 +17,7 @@ public class Setup {
         public static boolean OCTOQUAD = true;
     }
 
-    @Config
+    // @Config - Don't pollute the dashboard
     public static class HardwareNames {
 
         public static String FLMOTOR = "fl";
@@ -54,5 +54,6 @@ public class Setup {
 
         public static int AUTOTIME = 25;
         public static double STRAIGHTEN_DEAD_ZONE = 0.01;
+        public static String DEVICES_TO_LOG = "";
     }
 }

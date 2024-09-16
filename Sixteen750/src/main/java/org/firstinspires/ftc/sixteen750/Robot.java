@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.sixteen750;
 
 import com.technototes.library.logger.Loggable;
+import com.technototes.library.logger.Logger;
 import com.technototes.library.util.Alliance;
 import org.firstinspires.ftc.sixteen750.commands.slides.HorizontalSlidesSequentials;
 import org.firstinspires.ftc.sixteen750.commands.slides.VerticalSlidesSequentials;
@@ -27,6 +28,7 @@ public class Robot implements Loggable {
     public HangSubsystem hangSubsystem;
 
     public Robot(Hardware hw, Alliance team, StartingPosition pos) {
+        Logger.LogHardware(Setup.OtherSettings.DEVICES_TO_LOG);
         this.position = pos;
         this.alliance = team;
         this.initialVoltage = hw.voltage();

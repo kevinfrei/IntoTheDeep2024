@@ -45,6 +45,7 @@ public class Setup {
     @Config
     public static class OtherSettings {
 
+        public static String DEVICES_TO_LOG = "";
         public static double STRAIGHTEN_DEAD_ZONE = 0.08;
     }
 }
