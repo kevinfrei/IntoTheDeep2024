@@ -10,6 +10,7 @@ import com.technototes.library.subsystem.Subsystem;
 
 @Config
 public class RunToPositionSubsystem implements Subsystem, Loggable {
+
     @Log(name = "Current Pos")
     public static double CURRENT_POSITION = 0;
 
@@ -34,6 +35,10 @@ public class RunToPositionSubsystem implements Subsystem, Loggable {
 
     public void GoToPosition() {
         m.setPosition(TARGET_POSITION, POWER_LEVEL);
+    }
+
+    public void Stop() {
+        m.setPosition(CURRENT_POSITION);
     }
 
     public void IncSmallPosition() {
