@@ -12,12 +12,15 @@ import com.technototes.library.subsystem.Subsystem;
 public class RunToPositionSubsystem implements Subsystem, Loggable {
 
     @Log(name = "Current Pos")
-    public static double CURRENT_POSITION = 0;
+    public static int CURRENT_POSITION = 0;
 
-    public static double SMALL_POS_CHANGE = 50;
-    public static double LARGE_POS_CHANGE = 500;
-    public static double TARGET_POSITION = 1500;
+    public static int SMALL_POS_CHANGE = 50;
+    public static int LARGE_POS_CHANGE = 500;
+    @Log(name = "Target Pos")
+    public static int TARGET_POSITION = 1500;
 
+    @Log(name = "Loop Count")
+    public static int loopCount= 0;
     public static double P_pid = 1.0;
     public static double I_pid = 0.005;
     public static double D_pid = 0.0001;
@@ -26,19 +29,23 @@ public class RunToPositionSubsystem implements Subsystem, Loggable {
     public static double POWER_LEVEL = 0.5;
 
     EncodedMotor<DcMotorEx> m;
-
+    DcMotorEx raw;
     public RunToPositionSubsystem(EncodedMotor<DcMotorEx> motor) {
         m = motor;
-        m.setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
+        loopCount = 0;
         m.setPIDFCoefficients(P_pid, I_pid, D_pid, F_pid);
+        raw = m.getRawMotor(DcMotorEx.class);
+        raw.setTargetPosition(CURRENT_POSITION);
+        m.setRunMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
     public void GoToPosition() {
-        m.setPosition(TARGET_POSITION, POWER_LEVEL);
+        raw.setTargetPosition((int)TARGET_POSITION);
+//        m.setPosition(TARGET_POSITION, POWER_LEVEL);
     }
 
     public void Stop() {
-        m.setPosition(CURRENT_POSITION);
+        raw.setTargetPosition((int)CURRENT_POSITION);
     }
 
     public void IncSmallPosition() {
@@ -59,6 +66,11 @@ public class RunToPositionSubsystem implements Subsystem, Loggable {
 
     @Override
     public void periodic() {
-        CURRENT_POSITION = m.getAsDouble();
+        CURRENT_POSITION = (int)m.getAsDouble();
+        loopCount++;
+    }
+    public void Hang() {
+        // DO nothing, just get scheduled
+        loopCount += 1000;
     }
 }
