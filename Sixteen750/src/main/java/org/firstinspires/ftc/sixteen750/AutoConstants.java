@@ -10,8 +10,6 @@ import java.util.function.Function;
 
 @Config
 public class AutoConstants {
-
-
     //New testing constants for this year's game
     public static ConfigurablePoseD START = new ConfigurablePoseD(35, 63, 0);
     public static ConfigurablePoseD NETSCORING_TEST = new ConfigurablePoseD(55, 55, 45);

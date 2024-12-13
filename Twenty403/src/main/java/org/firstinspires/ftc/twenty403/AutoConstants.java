@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 
 @Config
 public class AutoConstants {
-//Park positions
+// Park positions
 public static ConfigurablePoseD PARK_START = new ConfigurablePoseD(-40, -52, 90);
 public static ConfigurablePoseD PARK_END = new ConfigurablePoseD(-70, -34, 90);
     // Stuff for testing:
